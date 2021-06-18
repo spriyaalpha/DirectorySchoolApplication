@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="card">
+    <div class="card-header">
+      <div class="row">
+         <img style="height:200px; width:200px; border-radius:50%; margin:auto" src=" {% static 'src/img/21309.jpg' %}" alt="Photo">
+      </div>
+    </div>
+    <div class="card-body">
+
+      <div class="personal_information">
+        <div class="row">
+          <h2 class="mx-auto">Personal Information</h2>
+        </div>
+        <hr>
+        <div class="row">
+          <div style="font-size:24px; margin-left: 30px">
+            <pre>First Name              : {{ UploadedDetailsnew.FirstName }}</pre>
+            <pre>Last Name               : {{ UploadedDetailsnew.LastName }}</pre>
+            <pre>Phone Number            : {{ UploadedDetailsnew.PhoneNumber }}</pre>
+            <pre>Email Address           : {{ UploadedDetailsnew.EmailAddress }}</pre>
+            <pre>Room Number             : {{ UploadedDetailsnew.RoomNumber }}</pre>
+            <pre>Subjects taught         : {{ UploadedDetailsnew.SubjectsTaught }}</pre>
+           </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+{% endblock %}

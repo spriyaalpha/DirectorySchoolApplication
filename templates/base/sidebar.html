@@ -1,0 +1,34 @@
+{% load static %}
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}"><i class="icon-speedometer"></i> Dashboard</a>
+            </li>
+            
+            
+
+           <!-- Teacher Section START -->
+           <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-puzzle"></i>Teacher</a>
+            <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'teacher-registration' %}">
+                        <i class="fa fa-plus-circle"></i>Teacher Registration</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'teacher-list' %}">
+                        <i class="fa fa-list"></i>Teacher List</a>
+                </li>
+            </ul>
+          </li>
+         
+       <!-- User-Manual Section END -->
+       </ul>
+    </nav>
+    <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+
+    {% block sidebar %}
+    {% endblock %}
+</div>

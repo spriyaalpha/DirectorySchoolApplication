@@ -1,0 +1,78 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="animated fadeIn">
+      <div class="card">
+          <div class="card-header">
+          </div>
+          {% if UploadedDetails %}
+          <div class="card-body">
+              <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                  <div class="row">
+                      <div class="col-sm-12 col-md-6">
+                          <div class="dataTables_length" id="DataTables_Table_0_length">
+                              <label>Show
+                                  <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="custom-select custom-select-sm form-control form-control-sm">
+                                      <option value="10">10</option>
+                                      <option value="25">25</option>
+                                      <option value="50">50</option>
+                                      <option value="100">100</option>
+                                  </select> entries</label>
+                          </div>
+                      </div>
+                      <div class="col-sm-12 col-md-6">
+                          <div id="DataTables_Table_0_filter" class="dataTables_filter">
+                              <label>
+							  <p>
+							  <a class="form-control form-control-sm" aria-controls="DataTables_Table_0"  onclick="alert('This sorts the table by first letter of last name')" href="{% url 'teacher-list-sort'%}">Sort</a>
+							 </p>
+                              
+                              </label>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-12">
+                          <table class="table table-striped table-bordered datatable dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="border-collapse: collapse !important">
+                              <thead>
+                                  <tr role="row">
+                                      <th>Id</th>
+                                      <th>FirstName</th>
+                                      <th>LastName</th>
+                                      <th>SubjectsTaught</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  {% for UploadedDetail in UploadedDetails %}
+                                    <tr role="row" class="odd">
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>{{ UploadedDetail.FirstName }}</td>
+                                        <td>{{ UploadedDetail.LastName }}</td>
+                                        <td>
+                                            <span class="badge badge-warning">{{ UploadedDetail.SubjectsTaught }}</span>
+                                        </td>
+                                        <td>
+                                           <a class="btn btn-success" href="{% url 'teacher-profile' UploadedDetail.id %}">
+                                                <i class="fa fa-search-plus"></i>
+                                            </a>
+                                           
+                                        </td>
+                                    </tr>
+                                  {% endfor %}
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+                  
+                  </div>
+              </div>
+          </div>
+          {% else %}
+          <div class="card-body">
+              <h3>No Teacher Found</h3>
+          </div>
+		 {% endif %}
+      </div>
+  </div>
+{% endblock %}
